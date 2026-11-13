@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f6f5ef">
+<meta name="description" content="하루의 작은 성장을 기록하는 개인 성장 기록장.">
+<title>오늘의 기록 — Hyojin's Growth Log</title>
+<style>
+:root{--bg:#f6f5ef;--paper:#fffefa;--ink:#252820;--muted:#777b70;--line:#e5e4da;--orange:#df7650;--green:#70866c;--yellow:#e8c66d;--blue:#8ca9b1}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;letter-spacing:-.035em}button,input,textarea{font:inherit}button{cursor:pointer}.shell{width:min(980px,calc(100% - 36px));margin:auto}.top{display:flex;justify-content:space-between;align-items:center;padding:23px 0;border-bottom:1px solid var(--line)}.brand{font-weight:850;letter-spacing:-.06em}.brand span{color:var(--orange)}.top a{font-size:13px;color:var(--muted);text-decoration:none}.hero{padding:60px 0 38px}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--muted)}h1{font-size:clamp(42px,7vw,72px);letter-spacing:-.085em;line-height:1.02;margin:16px 0}.hero p{color:var(--muted);line-height:1.7;margin:0}.datebar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:26px 0 18px}.datebar strong{font-size:15px}.datebar input{border:1px solid var(--line);background:var(--paper);border-radius:10px;padding:9px 11px;color:var(--ink)}.layout{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:start}.column{display:grid;gap:16px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:23px}.panel h2{font-size:19px;letter-spacing:-.06em;margin:0 0 7px}.sub{font-size:12px;color:var(--muted);margin:0 0 18px;line-height:1.6}.moods{display:flex;gap:9px;flex-wrap:wrap}.mood{border:1px solid var(--line);background:transparent;border-radius:12px;padding:10px 13px;font-size:13px;color:var(--muted)}.mood[aria-pressed=true]{border-color:var(--orange);background:#fbede6;color:#9c4d31}.field{width:100%;border:1px solid var(--line);border-radius:11px;padding:12px;background:#fffefa;color:var(--ink);outline:none}.field:focus{border-color:var(--green)}textarea.field{min-height:112px;resize:vertical;line-height:1.6}.label{display:block;font-size:12px;font-weight:750;margin:17px 0 8px}.btn{border:0;background:var(--ink);color:white;border-radius:99px;padding:11px 17px;font-size:12px;font-weight:750}.btn.secondary{background:#eeeee6;color:var(--ink)}.btn.orange{background:var(--orange)}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.goal{display:flex;gap:10px;align-items:center;margin:10px 0}.goal input{accent-color:var(--green);width:17px;height:17px}.goal span{font-size:13px;flex:1}.goal.done span{text-decoration:line-through;color:#9a9d93}.goal button{border:0;background:transparent;color:#a2a499;font-size:17px}.goal-add{display:flex;gap:8px;margin-top:16px}.goal-add input{min-width:0;flex:1}.habit{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid #efeee7;font-size:13px}.habit:last-child{border:0}.habit input{accent-color:var(--green);width:17px;height:17px}.statrow{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{background:#f0f0e9;border-radius:12px;padding:14px}.stat strong{display:block;font-size:25px;letter-spacing:-.06em}.stat span{font-size:11px;color:var(--muted)}.history{display:grid;gap:9px}.entry{border:1px solid var(--line);border-radius:12px;padding:13px}.entry-top{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:7px}.entry p{font-size:13px;line-height:1.6;margin:0;white-space:pre-wrap;overflow-wrap:anywhere}.empty{font-size:12px;color:var(--muted);line-height:1.7}.foot{padding:30px 0 50px;color:var(--muted);font-size:11px;line-height:1.7}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:white;padding:11px 16px;border-radius:99px;font-size:12px;opacity:0;pointer-events:none;transition:opacity .2s}.toast.show{opacity:1}
+@media(max-width:720px){.hero{padding:45px 0 25px}.layout{grid-template-columns:1fr}.panel{padding:19px}.datebar{align-items:flex-start;flex-direction:column}.statrow{grid-template-columns:repeat(2,1fr)}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="top"><div class="brand">HYOJIN<span>.</span> / GROWTH LOG</div><a href="../">← 포트폴리오로</a></header>
+<section class="hero"><div class="eyebrow">A LITTLE BETTER, EVERY DAY</div><h1>오늘의 나를<br>차곡차곡.</h1><p>대단한 하루가 아니어도 괜찮아.<br>배운 것, 해낸 것, 내일 해보고 싶은 것을 기록해 봐요.</p></section>
+<div class="datebar"><strong id="todayLabel">오늘의 기록</strong><input type="date" id="dateInput" aria-label="기록 날짜"></div>
+<main class="layout">
+<div class="column">
+<section class="panel"><h2>오늘의 기분</h2><p class="sub">지금 내 마음과 가장 가까운 표정을 골라주세요.</p><div class="moods" id="moods"><button class="mood" data-mood="😊" aria-pressed="false">😊 좋음</button><button class="mood" data-mood="🙂" aria-pressed="false">🙂 평범</button><button class="mood" data-mood="😐" aria-pressed="false">😐 무난</button><button class="mood" data-mood="😮‍💨" aria-pressed="false">😮‍💨 지침</button><button class="mood" data-mood="🌱" aria-pressed="false">🌱 기대</button></div>
+<label class="label" for="learned">오늘 새롭게 알게 된 것</label><textarea class="field" id="learned" placeholder="오늘 배운 것, 기억하고 싶은 순간을 적어보세요."></textarea>
+<label class="label" for="done">오늘 해낸 작은 일</label><textarea class="field" id="done" placeholder="작은 일도 충분히 기록할 가치가 있어요."></textarea>
+<label class="label" for="tomorrow">내일의 나에게</label><textarea class="field" id="tomorrow" placeholder="내일 해보고 싶은 한 가지를 적어보세요."></textarea>
+<div class="actions"><button class="btn orange" id="saveBtn">오늘 기록 저장</button><button class="btn secondary" id="clearBtn">입력 비우기</button></div></section>
+<section class="panel"><h2>이번 달의 작은 목표</h2><p class="sub">목표는 작고 구체적일수록 좋아요.</p><div id="goals"></div><div class="goal-add"><input class="field" id="goalInput" placeholder="예: Python 20분 공부하기"><button class="btn" id="addGoal">추가</button></div></section>
+</div>
+<div class="column">
+<section class="panel"><h2>오늘의 루틴</h2><p class="sub">체크 하나도 오늘의 성취예요.</p><div id="habits"><label class="habit"><input type="checkbox" value="공부하기"> 공부하기</label><label class="habit"><input type="checkbox" value="몸 움직이기"> 몸 움직이기</label><label class="habit"><input type="checkbox" value="물 충분히 마시기"> 물 충분히 마시기</label><label class="habit"><input type="checkbox" value="나만의 시간 갖기"> 나만의 시간 갖기</label></div></section>
+<section class="panel"><h2>나의 기록</h2><p class="sub">기록이 쌓이는 모습을 확인해 보세요.</p><div class="statrow"><div class="stat"><strong id="countStat">0</strong><span>기록한 날</span></div><div class="stat"><strong id="goalStat">0/0</strong><span>목표 달성</span></div></div><div class="actions"><button class="btn secondary" id="exportBtn">기록 백업하기 ↓</button></div></section>
+<section class="panel"><h2>지난 기록</h2><p class="sub">최근 기록부터 보여드려요.</p><div class="history" id="history"><p class="empty">아직 기록이 없어요. 오늘의 첫 기록을 남겨보세요!</p></div></section>
+<section class="panel"><h2>기억해 주세요</h2><p class="empty">이 기록은 현재 사용 중인 브라우저에 저장돼요. 다른 기기나 브라우저와 자동으로 동기화되지는 않으니, 가끔 '기록 백업하기'로 파일을 보관해 주세요.</p></section>
+</div>
+</main>
+<footer class="foot">MADE FOR SMALL STEPS · HYOJIN HONG<br>꾸준함은 완벽함보다 오래갑니다.</footer>
+</div><div class="toast" id="toast" role="status"></div>
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const STORE='hyojin-growth-v1';
+let db=JSON.parse(localStorage.getItem(STORE)||'{"entries":{},"goals":[]}');
+let selectedMood='';
+const today=()=>new Date().toLocaleDateString('sv-SE');
+const dateInput=$('#dateInput');dateInput.value=today();
+function key(){return dateInput.value}
+function say(msg){const t=$('#toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1800)}
+function persist(){localStorage.setItem(STORE,JSON.stringify(db));renderStats();renderHistory()}
+function updateLabel(){const d=new Date(key()+'T12:00:00');$('#todayLabel').textContent=d.toLocaleDateString('ko-KR',{year:'numeric',month:'long',day:'numeric',weekday:'long'})+' 기록'}
+function loadDay(){const e=db.entries[key()]||{};selectedMood=e.mood||'';$$('.mood').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mood===selectedMood)));$('#learned').value=e.learned||'';$('#done').value=e.done||'';$('#tomorrow').value=e.tomorrow||'';$$('#habits input').forEach(c=>c.checked=(e.habits||[]).includes(c.value));updateLabel()}
+$('#moods').addEventListener('click',e=>{const b=e.target.closest('[data-mood]');if(!b)return;selectedMood=b.dataset.mood;$$('.mood').forEach(x=>x.setAttribute('aria-pressed',String(x===b)))});
+$('#saveBtn').addEventListener('click',()=>{const habits=$$('#habits input:checked').map(x=>x.value);const entry={mood:selectedMood,learned:$('#learned').value.trim(),done:$('#done').value.trim(),tomorrow:$('#tomorrow').value.trim(),habits};if(!entry.mood&&!entry.learned&&!entry.done&&!entry.tomorrow&&!habits.length){say('한 가지라도 기록해 보세요.');return}db.entries[key()]=entry;persist();say('오늘의 기록을 저장했어요!')});
+$('#clearBtn').addEventListener('click',()=>{['#learned','#done','#tomorrow'].forEach(s=>$(s).value='');selectedMood='';$$('.mood').forEach(b=>b.setAttribute('aria-pressed','false'));$$('#habits input').forEach(c=>c.checked=false)});
+dateInput.addEventListener('change',()=>{loadDay()});
+function renderGoals(){$('#goals').innerHTML='';if(!db.goals.length)$('#goals').innerHTML='<p class="empty">아직 목표가 없어요. 작은 목표부터 추가해 보세요.</p>';db.goals.forEach((g,i)=>{const row=document.createElement('div');row.className='goal'+(g.done?' done':'');const cb=document.createElement('input');cb.type='checkbox';cb.checked=g.done;cb.addEventListener('change',()=>{g.done=cb.checked;persist();renderGoals()});const span=document.createElement('span');span.textContent=g.text;const del=document.createElement('button');del.type='button';del.textContent='×';del.setAttribute('aria-label','목표 삭제');del.addEventListener('click',()=>{db.goals.splice(i,1);persist();renderGoals()});row.append(cb,span,del);$('#goals').append(row)})}
+$('#addGoal').addEventListener('click',()=>{const v=$('#goalInput').value.trim();if(!v)return;db.goals.push({text:v,done:false});$('#goalInput').value='';persist();renderGoals()});$('#goalInput').addEventListener('keydown',e=>{if(e.key==='Enter')$('#addGoal').click()});
+function renderStats(){$('#countStat').textContent=Object.keys(db.entries).length;$('#goalStat').textContent=db.goals.filter(g=>g.done).length+'/'+db.goals.length}
+function renderHistory(){const items=Object.entries(db.entries).sort((a,b)=>b[0].localeCompare(a[0])).slice(0,6);$('#history').innerHTML='';if(!items.length){$('#history').innerHTML='<p class="empty">아직 기록이 없어요. 오늘의 첫 기록을 남겨보세요!</p>';return}items.forEach(([date,e])=>{const box=document.createElement('article');box.className='entry';const top=document.createElement('div');top.className='entry-top';const dt=document.createElement('span');dt.textContent=date;const mood=document.createElement('span');mood.textContent=e.mood||'';top.append(dt,mood);const p=document.createElement('p');p.textContent=e.done||e.learned||e.tomorrow||((e.habits||[]).join(' · '))||'기록만 남긴 날';box.append(top,p);$('#history').append(box)})}
+$('#exportBtn').addEventListener('click',()=>{const blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='hyojin-growth-backup.json';a.click();URL.revokeObjectURL(url);say('백업 파일을 만들었어요!')});
+renderGoals();loadDay();renderStats();renderHistory();
+</script>
+</body></html>
